@@ -490,15 +490,15 @@
     <bool name="config_proximityCheckOnWakeEnabledByDefault">true</bool> 
 
     <!-- Whether home button can wake device -->
-    <bool name="config_homeCanWake">true</bool> 
+  <!--  <bool name="config_homeCanWake">true</bool> -->
 
     <!-- Stop listening to the fingerprint reader when NON-WAKEUP proximity sensor is covered & screen is off.
          config_proximityCheckOnWake must be true. -->
-    <bool name="config_proximityCheckOnFingerprintWake">true</bool> 
+   <!--  <bool name="config_proximityCheckOnFingerprintWake">true</bool> -->
 
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
   
-    <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool> 
+    <!--  <bool name="config_notifyClientOnFingerprintCancelSuccess">true</bool> -->
 
     <!-- True if camera app should be pinned via Pinner Service -->
     <bool name="config_pinnerCameraApp">true</bool>
