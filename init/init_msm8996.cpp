@@ -33,11 +33,9 @@
 #include <android-base/file.h>
 #include <android-base/properties.h>
 #include <android-base/strings.h>
-#include <android-base/logging.h>
+#include "vendor_init.h"
 #include "property_service.h"
 
-namespace android {
-namespace init {
 using android::base::GetProperty;
 using android::base::ReadFileToString;
 using android::base::Trim;
@@ -73,9 +71,9 @@ static void init_alarm_boot_properties()
 		*/
 		if ((Trim(boot_reason) == "3" || reboot_reason == "true")
 				&& Trim(power_off_alarm) == "1") {
-			property_set("ro.alarm_boot", "true");
+			android::init::property_set("ro.alarm_boot", "true");
 		} else {
-			property_set("ro.alarm_boot", "false");
+			android::init::property_set("ro.alarm_boot", "false");
 		}
 	}
 }
@@ -100,7 +98,6 @@ void check_device()
 void vendor_load_properties() 
 {
 	std::string platform;
-        LOG(INFO) << __func__ << "\n";
 
 	platform = GetProperty("ro.board.platform", "");
 	if (platform != ANDROID_TARGET)
@@ -108,14 +105,12 @@ void vendor_load_properties()
 
 	check_device();
 
-	property_set("dalvik.vm.heapstartsize", "8m");
-	property_set("dalvik.vm.heapgrowthlimit", "256m");
-	property_set("dalvik.vm.heapsize", "512m");
-	property_set("dalvik.vm.heaptargetutilization", "0.75");
-	property_set("dalvik.vm.heapminfree", heapminfree);
-	property_set("dalvik.vm.heapmaxfree", heapmaxfree);
+	android::init::property_set("dalvik.vm.heapstartsize", "8m");
+	android::init::property_set("dalvik.vm.heapgrowthlimit", "256m");
+	android::init::property_set("dalvik.vm.heapsize", "512m");
+	android::init::property_set("dalvik.vm.heaptargetutilization", "0.75");
+	android::init::property_set("dalvik.vm.heapminfree", heapminfree);
+	android::init::property_set("dalvik.vm.heapmaxfree", heapmaxfree);
 
     init_alarm_boot_properties();
 }
-}  // namespace init
-} // namespace android

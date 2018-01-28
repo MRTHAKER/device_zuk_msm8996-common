@@ -22,7 +22,7 @@
 #
 
 $(call inherit-product-if-exists, vendor/zuk/msm8996-common/msm8996-common-vendor.mk)
-
+include $(TOPDIR)hardware/qcom/audio/configs/msm8996/msm8996.mk
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -67,10 +67,10 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 # HWUI overrides
-$(call inherit-product, vendor/omni/config/phone-xxxhdpi-3072-hwui-memory.mk)
+#$(call inherit-product, vendor/omni/config/phone-xxxhdpi-3072-hwui-memory.mk)
 
 # Dalvik overrides
-$(call inherit-product, vendor/omni/config/phone-xxxhdpi-3072-dalvik-heap.mk)
+#$(call inherit-product, vendor/omni/config/phone-xxxhdpi-3072-dalvik-heap.mk)
 
 # Haters gonna hate..
 PRODUCT_CHARACTERISTICS := nosdcard
